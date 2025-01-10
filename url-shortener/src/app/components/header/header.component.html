@@ -1,4 +1,4 @@
-<header class="flex p-5 items-center justify-between">
+<header class="flex p-5 items-center justify-between hover:cursor-pointer">
   <h1 class="text-3xl font-bold">Shortly</h1>
   <div class="hidden">
     <ul class="flex">
@@ -13,6 +13,19 @@
     </ul>
   </div>
   <div>
-    <i class="fa fa-bars fa-2x text-gray-800"></i>
+    <i class="fa fa-bars fa-2x text-gray-800" (click)="toggleMenu()"></i>
   </div>
 </header>
+<div
+  *ngIf="isMenuOpen"
+  class="absolute z-50 text-white flex flex-col w-80 bg-[#3a3053] left-1/2 transform -translate-x-1/2"
+>
+  <div>
+    <ul>
+      <li>Features</li>
+      <li>Pricing</li>
+      <li>Resources</li>
+    </ul>
+  </div>
+  <div></div>
+</div>

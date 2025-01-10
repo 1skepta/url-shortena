@@ -5,7 +5,7 @@ import { BodyComponent } from './components/body/body.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, HeaderComponent, BodyComponent],
+  imports: [HeaderComponent, BodyComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })

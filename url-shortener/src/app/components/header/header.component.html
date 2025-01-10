@@ -18,14 +18,19 @@
 </header>
 <div
   *ngIf="isMenuOpen"
-  class="absolute z-50 text-white flex flex-col w-80 bg-[#3a3053] left-1/2 transform -translate-x-1/2"
+  class="rounded-lg absolute z-50 text-white flex flex-col w-80 bg-[#3a3053] left-1/2 transform -translate-x-1/2 items-center"
 >
-  <div>
-    <ul>
+  <div class="py-7 border-b border-[rgb(194,193,193)] w-full">
+    <ul class="text-center leading-9">
       <li>Features</li>
       <li>Pricing</li>
       <li>Resources</li>
     </ul>
   </div>
-  <div></div>
+  <div class="py-7">
+    <ul class="text-center leading-9">
+      <li>Login</li>
+      <li class="bg-myblue px-24 rounded-md">Sign Up</li>
+    </ul>
+  </div>
 </div>

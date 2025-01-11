@@ -21,3 +21,20 @@
     <span>Shorten It!</span>
   </div>
 </div>
+<div *ngFor="let result of results; let i = index" class="mt-4">
+  <div class="flex justify-between items-center bg-gray-200 p-4 rounded-md">
+    <span>{{ result.text }}</span>
+    <div class="flex items-center space-x-4">
+      <span>{{ result.shortUrl }}</span>
+      <button
+        (click)="copyToClipboard(i)"
+        [style.background-color]="
+          result.isCopied ? '#3a3053' : 'hsl(180, 66%, 49%)'
+        "
+        class="text-white px-4 py-1 rounded-md"
+      >
+        {{ result.isCopied ? "Copied!" : "Copy" }}
+      </button>
+    </div>
+  </div>
+</div>

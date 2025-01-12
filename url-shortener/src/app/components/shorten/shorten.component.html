@@ -1,40 +1,42 @@
-<div
-  class="px-7 rounded-md w-full flex flex-col items-center justify-evenly bg-myviolet h-32 bg-[url('assets/images/bg-shorten-mobile.svg')] bg-cover bg-center"
->
-  <div class="rounded-md w-full">
-    <input
-      [(ngModel)]="linkInput"
-      (input)="onInputChange()"
-      [ngClass]="{ 'border-red-400 focus:ring-red-400': showError }"
-      class="mb-0 w-full p-3 text-gray-700 rounded-md outline-none focus:ring-2 focus:ring-myblue"
-      type="text"
-      placeholder="Shorten a link here..."
-    />
-    <span *ngIf="showError" class="mt-0 text-red-400 text-sm"
-      >Please add a link</span
-    >
-  </div>
+<div class="md:px-20">
+  <div
+    class="px-7 rounded-md w-full flex flex-col items-center justify-evenly bg-myviolet h-32 bg-[url('assets/images/bg-shorten-mobile.svg')] md:bg-[url('assets/images/bg-shorten-desktop.svg')] bg-cover bg-center md:flex-row md:px-14 md:h-36"
+  >
+    <div class="rounded-md w-full">
+      <input
+        [(ngModel)]="linkInput"
+        (input)="onInputChange()"
+        [ngClass]="{ 'border-red-400 focus:ring-red-400': showError }"
+        class="mb-0 w-full p-3 text-gray-700 rounded-md outline-none focus:ring-2 focus:ring-myblue"
+        type="text"
+        placeholder="Shorten a link here..."
+      />
+      <span *ngIf="showError" class="mt-0 text-red-400 text-sm"
+        >Please add a link</span
+      >
+    </div>
 
-  <div
-    (click)="shortenLink()"
-    class="cursor-pointer text-white h-11 items-center bg-myblue rounded-md w-full flex justify-center"
-  >
-    <span>Shorten It!</span>
-  </div>
-</div>
-<div *ngFor="let result of results; let i = index" class="mt-4">
-  <div
-    class="text-center flex-col flex items-center bg-white w-full py-5 rounded-md"
-  >
-    <span>{{ result.shortUrl }}</span>
-    <button
-      (click)="copyToClipboard(i)"
-      [style.background-color]="
-        result.isCopied ? '#3a3053' : 'hsl(180, 66%, 49%)'
-      "
-      class="text-white px-7 py-1 rounded-md mt-3"
+    <div
+      (click)="shortenLink()"
+      class="cursor-pointer text-white h-11 items-center bg-myblue rounded-md w-full flex justify-center hover:bg-hoverblue md:w-1/5 md:ml-10"
     >
-      {{ result.isCopied ? "Copied!" : "Copy" }}
-    </button>
+      <span>Shorten It!</span>
+    </div>
+  </div>
+  <div *ngFor="let result of results; let i = index" class="mt-4">
+    <div
+      class="text-center flex-col flex items-center bg-white w-full py-5 rounded-md md:flex-row md:px-14 justify-between"
+    >
+      <span>{{ result.shortUrl }}</span>
+      <button
+        (click)="copyToClipboard(i)"
+        [style.background-color]="
+          result.isCopied ? '#3a3053' : 'hsl(180, 66%, 49%)'
+        "
+        class="text-white px-7 py-1 rounded-md mt-3 md:mt-0 md:py-2 md:px-12 font-semibold md:hover:bg-hoverblue"
+      >
+        {{ result.isCopied ? "Copied!" : "Copy" }}
+      </button>
+    </div>
   </div>
 </div>

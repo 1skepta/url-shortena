@@ -39,13 +39,37 @@ export class ShortenComponent {
       this.showError = false;
     }
   }
-
   copyToClipboard(index: number) {
-    navigator.clipboard.writeText(this.results[index].shortUrl);
-    this.results[index].isCopied = true;
+    const textToCopy = this.results[index].shortUrl;
 
-    setTimeout(() => {
-      this.results[index].isCopied = false;
-    }, 700);
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard
+        .writeText(textToCopy)
+        .then(() => {
+          this.results[index].isCopied = true;
+          setTimeout(() => {
+            this.results[index].isCopied = false;
+          }, 700);
+        })
+        .catch((err) => {
+          console.error('Failed to copy text:', err);
+        });
+    } else {
+      const textarea = document.createElement('textarea');
+      textarea.value = textToCopy;
+      document.body.appendChild(textarea);
+      textarea.select();
+      try {
+        document.execCommand('copy');
+        console.log('Fallback: Text copied to clipboard');
+        this.results[index].isCopied = true;
+        setTimeout(() => {
+          this.results[index].isCopied = false;
+        }, 700);
+      } catch (err) {
+        console.error('Fallback: Failed to copy text:', err);
+      }
+      document.body.removeChild(textarea);
+    }
   }
 }

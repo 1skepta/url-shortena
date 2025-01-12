@@ -1,18 +1,22 @@
-<header class="flex p-5 items-center justify-between hover:cursor-pointer">
-  <h1 class="text-3xl font-bold">Shortly</h1>
-  <div class="hidden">
-    <ul class="flex">
-      <li>Features</li>
-      <li>Pricing</li>
-      <li>Resources</li>
+<header class="flex p-5 items-center justify-between md:py-20 md:px-36">
+  <h1 class="text-3xl font-bold cursor-none">Shortly</h1>
+  <div class="hidden md:flex w-4/5 justify-between">
+    <ul class="s w-2/5 justify-between flex font-semibold text-myblack">
+      <li class="cursor-pointer hover:text-black">Features</li>
+      <li class="cursor-pointer hover:text-black">Pricing</li>
+      <li class="cursor-pointer hover:text-black">Resources</li>
     </ul>
 
-    <ul class="flex">
-      <li>Login</li>
-      <li>Sign Up</li>
+    <ul class="w-1/4 justify-between flex font-semibold text-myblack">
+      <li class="cursor-pointer hover:text-black">Login</li>
+      <li
+        class="bg-myblue hover:cursor-pointer rounded-md px-5 py-1 text-white"
+      >
+        Sign Up
+      </li>
     </ul>
   </div>
-  <div>
+  <div class="md:hidden">
     <i
       style="color: #bfbfbf"
       class="fa fa-bars fa-2x"
